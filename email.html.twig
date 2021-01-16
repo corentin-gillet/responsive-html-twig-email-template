@@ -10,7 +10,11 @@
       ------------------------------------- */
       
       /*All the styling goes here*/
-      
+
+      {% block additionalCss %}
+      {% endblock %}
+
+      {% block css %}
       img {
         border: none;
         -ms-interpolation-mode: bicubic;
@@ -329,11 +333,12 @@
           border-color: #34495e !important; 
         } 
       }
+      {% endblock css %}
 
     </style>
   </head>
   <body class="">
-    <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+    <span class="preheader">{% block preHeaderText %}This is preheader text. Some clients will show this text as a preview. {% endblock preheaderText %}</span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
       <tr>
         <td>&nbsp;</td>
@@ -344,13 +349,16 @@
             <table role="presentation" class="main">
 
               <!-- START MAIN CONTENT AREA -->
+              {% block mainContent %}
               <tr>
                 <td class="wrapper">
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
+                        {% block beforeActionText %}
                         <p>Hi there,</p>
                         <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
+                        {% endblock %}
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
@@ -358,7 +366,11 @@
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="http://htmlemail.io" target="_blank">Call To Action</a> </td>
+                                      <td>
+                                        {% block action %}
+                                        <a href="http://htmlemail.io" target="_blank">Call To Action</a>
+                                        {% endblock %}
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -366,30 +378,28 @@
                             </tr>
                           </tbody>
                         </table>
+                        {% block afterActionText %}
                         <p>This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
                         <p>Good luck! Hope it works.</p>
+                        {% endblock %}
                       </td>
                     </tr>
                   </table>
                 </td>
               </tr>
-
+              {% endblock mainContent %}
             <!-- END MAIN CONTENT AREA -->
             </table>
             <!-- END CENTERED WHITE CONTAINER -->
-
             <!-- START FOOTER -->
             <div class="footer">
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
+                    {% block footerText %}
                     <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
                     <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="content-block powered-by">
-                    Powered by <a href="http://htmlemail.io">HTMLemail</a>.
+                    {% endblock %}
                   </td>
                 </tr>
               </table>
