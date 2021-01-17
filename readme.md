@@ -1,3 +1,20 @@
+# Twig block reference
+
+* beforeActionText
+* action
+* afterActionText
+* mainContent
+* footerText
+* css
+* additionalCss
+
+# Copy in project
+
+```
+git clone --depth=1 --branch=master git://someserver/somerepo dirformynewrepo
+rm -rf ./dirformynewrepo/.git
+ ```
+
 # Free Responsive HTML Email Template
 
 Sometimes all you want is a really simple responsive HTML email template with a clear call-to-action button. Here it is.
